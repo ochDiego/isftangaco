@@ -10,7 +10,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th colspan="2"></th>
+                        <th colspan="3"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +21,11 @@
                             </td>
                             <td>
                                 {{ $carrera->descripcion }}
+                            </td>
+                            <td width="10">
+                                <a class="btn btn-secondary btn-sm" href="{{ route('admin.carreras.show',$carrera) }}" role="button">
+                                    Asignaturas
+                                </a>
                             </td>
                             <td width="10">
                                 <a class="btn btn-info btn-sm" href="{{ route('admin.carreras.edit',$carrera) }}" role="button">

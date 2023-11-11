@@ -3,36 +3,32 @@
         <input type="text" wire:model.live="search" class="w-full form-control" placeholder="Búscar asignatura">
     </div>
 
-    @if ($asignaturas->count())
+    @if ($tiposLicencia->count())
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Profesor</th>
-                        <th>Cant de horas</th>
+                        <th>Descripción</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($asignaturas as $asignatura)
+                    @foreach ($tiposLicencia as $tipolicencia)
                         <tr>
                             <td>
-                                {{ $asignatura->nombre }}
+                                {{ $tipolicencia->nombre }}
                             </td>
                             <td>
-                                {{ $asignatura->profesore->nombre }}
-                            </td>
-                            <td class="text-center">
-                                {{ $asignatura->cantidad_horas }}
+                                {{ $tipolicencia->descripcion }}
                             </td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.asignaturas.edit',$asignatura) }}" role="button">
+                                <a class="btn btn-info btn-sm" href="{{ route('admin.tiposlicencia.edit',$tipolicencia) }}" role="button">
                                     Editar
                                 </a>
                             </td>
                             <td width="10">
-                                <form action="{{ route('admin.asignaturas.destroy',$asignatura) }}" method="post">
+                                <form action="{{ route('admin.tiposlicencia.destroy',$tipolicencia) }}" method="post">
                                     @csrf
                                     @method('DELETE')
 
@@ -48,7 +44,7 @@
         </div>
 
         <div class="card-footer">
-            {{ $asignaturas->links() }}
+            {{ $tiposLicencia->links() }}
         </div>
     @else
         <div class="card-body text-center">
@@ -57,3 +53,4 @@
     @endif
 
 </div>
+

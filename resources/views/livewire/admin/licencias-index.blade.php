@@ -1,38 +1,46 @@
 <div class="card">
     <div class="card-header">
-        <input type="text" wire:model.live="search" class="w-full form-control" placeholder="Búscar asignatura">
+        <input type="text" wire:model.live="search" class="w-full form-control" placeholder="Búscar licencia">
     </div>
 
-    @if ($asignaturas->count())
+    @if ($licencias->count())
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>F. incio</th>
+                        <th>F. fin</th>
                         <th>Profesor</th>
-                        <th>Cant de horas</th>
+                        <th>Tipo de lic</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($asignaturas as $asignatura)
+                    @foreach ($licencias as $licencia)
                         <tr>
                             <td>
-                                {{ $asignatura->nombre }}
+                                {{ $licencia->nombre }}
                             </td>
                             <td>
-                                {{ $asignatura->profesore->nombre }}
+                                {{ $licencia->fecha_inicio }}
                             </td>
-                            <td class="text-center">
-                                {{ $asignatura->cantidad_horas }}
+                            <td>
+                                {{ $licencia->fecha_fin }}
+                            </td>
+                            <td>
+                                {{ $licencia->profesore->nombre }}
+                            </td>
+                            <td>
+                                {{ $licencia->tipoLicencia->nombre }}
                             </td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.asignaturas.edit',$asignatura) }}" role="button">
+                                <a class="btn btn-info btn-sm" href="{{ route('admin.licencias.edit',$licencia) }}" role="button">
                                     Editar
                                 </a>
                             </td>
                             <td width="10">
-                                <form action="{{ route('admin.asignaturas.destroy',$asignatura) }}" method="post">
+                                <form action="{{ route('admin.licencias.destroy',$licencia) }}" method="post">
                                     @csrf
                                     @method('DELETE')
 
@@ -48,7 +56,7 @@
         </div>
 
         <div class="card-footer">
-            {{ $asignaturas->links() }}
+            {{ $licencias->links() }}
         </div>
     @else
         <div class="card-body text-center">

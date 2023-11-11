@@ -17,6 +17,19 @@
 </div>
 
 <div class="form-group">
+    <p class="font-weight-bold h5">Asignaturas:</p>
+
+    @foreach ($asignaturas as $asignatura)
+        <div>
+            <label for="mr-2">
+                {!! Form::checkbox('asignaturas[]', $asignatura->id, null,) !!}
+                {{ $asignatura->nombre }}
+            </label>
+        </div>
+    @endforeach
+</div>
+
+<div class="form-group">
     {!! Form::label('descripcion', 'Descripción:',) !!}
     {!! Form::textarea('descripcion', null, ['class' => 'form-control','placeholder' => 'Ingrese la descripción de la carrera']) !!}
 

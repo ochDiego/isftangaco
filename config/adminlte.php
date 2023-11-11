@@ -326,9 +326,16 @@ return [
             'active' => ['admin/carreras*'],
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Licencias',
+            'route'  => 'admin.licencias.index',
             'icon' => 'fas fa-fw fa-lock',
+            'active' => ['admin/licencias*'],
+        ],
+        [
+            'text' => 'Tipos de licencia',
+            'route'  => 'admin.tiposlicencia.index',
+            'icon' => 'fas fa-fw fa-lock',
+            'active' => ['admin/tipos-licencia*'],
         ],
         ['header' => 'labels'],
         [
