@@ -14,6 +14,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <!-- Styles -->
         @livewireStyles
     </head>
@@ -41,5 +43,34 @@
         @stack('modals')
 
         @livewireScripts
+
+        <script>
+            Livewire.on('alert', function(message) {
+                Swal.fire({
+                    icon: 'error',
+                    title: message,
+                })
+            })
+
+            Livewire.on('entrada', function(message) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+
+            Livewire.on('salida', function(message) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+        </script>
     </body>
 </html>
