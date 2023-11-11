@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('nombre');
             $table->string('slug')->unique();
-            $table->integer('cantidad_horas');
+            $table->integer('cantidad_horas')->nullable();
 
             $table->unsignedBigInteger('profesore_id')->nullable();
             $table->foreign('profesore_id')->references('id')->on('profesores')->onDelete('set null');
