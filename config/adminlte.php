@@ -309,9 +309,10 @@ return [
         ],
         
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Profesores',
+            'route'  => 'admin.profesores.index',
             'icon' => 'fas fa-fw fa-user',
+            'active' => ['admin/profesores*'],
         ],
         [
             'text' => 'Asignaturas',

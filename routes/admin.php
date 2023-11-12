@@ -6,8 +6,11 @@ use App\Http\Controllers\Admin\AsignaturaController;
 use App\Http\Controllers\Admin\CarreraController;
 use App\Http\Controllers\Admin\TipoLicenciaController;
 use App\Http\Controllers\Admin\LicenciaController;
+use App\Http\Controllers\Admin\ProfesoreController;
 
 Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+
+Route::resource('profesores', ProfesoreController::class)->names('admin.profesores');
 
 Route::resource('asignaturas', AsignaturaController::class)->except('show')->names('admin.asignaturas');
 

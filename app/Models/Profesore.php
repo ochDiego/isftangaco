@@ -11,7 +11,16 @@ class Profesore extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'nombre',
+        'slug',
+        'dni',
+        'email',
+        'telefono',
+        'fecha_nac',
+        'domicilio',
+        'cv',
+    ];
 
     public function asistencias():HasMany
     {

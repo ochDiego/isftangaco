@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('nombre',90);
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->bigInteger('dni')->unique();
             $table->string('email',75)->unique()->nullable();
             $table->bigInteger('telefono')->nullable();
