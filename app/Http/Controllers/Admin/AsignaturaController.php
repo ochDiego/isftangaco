@@ -11,6 +11,15 @@ use App\Http\Requests\AsignaturaRequest;
 class AsignaturaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:admin.asignaturas.index')->only('index');
+        $this->middleware('can:admin.asignaturas.create')->only('create','store');
+        $this->middleware('can:admin.asignaturas.edit')->only('edit','update');
+        $this->middleware('can:admin.asignaturas.destroy')->only('destroy');
+    }
+
+
     public function index()
     {
         return view('admin.asignaturas.index');

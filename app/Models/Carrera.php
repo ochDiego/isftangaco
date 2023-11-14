@@ -12,6 +12,11 @@ class Carrera extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function asignaturas():BelongsToMany
     {
         return $this->belongsToMany(Asignatura::class);

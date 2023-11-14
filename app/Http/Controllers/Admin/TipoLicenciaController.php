@@ -9,6 +9,13 @@ use App\Http\Requests\TipoLicenciaRequest;
 
 class TipoLicenciaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.tiposlicencia.index')->only('index');
+        $this->middleware('can:admin.tiposlicencia.create')->only('create','store');
+        $this->middleware('can:admin.tiposlicencia.edit')->only('edit','update');
+        $this->middleware('can:admin.tiposlicencia.destroy')->only('destroy');
+    }
 
     public function index()
     {

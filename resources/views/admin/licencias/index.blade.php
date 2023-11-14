@@ -4,9 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.licencias.create') }}" role="button">
-        Nueva licencia
-    </a>
+    @can('admin.licencias.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.licencias.create') }}" role="button">
+            Nueva licencia
+        </a>
+    @endcan
 
     <h1>Lista de licencias</h1>
 @stop

@@ -9,6 +9,13 @@ use App\Models\Asignatura;
 
 class CarreraController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.carreras.index')->only('index');
+        $this->middleware('can:admin.carreras.create')->only('create','store');
+        $this->middleware('can:admin.carreras.edit')->only('edit','update');
+        $this->middleware('can:admin.carreras.destroy')->only('destroy');
+    }
 
     public function index()
     {

@@ -4,9 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.tiposlicencia.create') }}" role="button">
-        Nuevo tipo de licencia
-    </a>
+    @can('admin.tiposlicencia.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.tiposlicencia.create') }}" role="button">
+            Nuevo tipo de licencia
+        </a>
+    @endcan
 
     <h1>Lista de tipos de licencia</h1>
 @stop

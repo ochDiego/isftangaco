@@ -4,9 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.profesores.create') }}" role="button">
-        Nuevo profesor
-    </a>
+    @can('admin.profesores.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.profesores.create') }}" role="button">
+            Nuevo profesor
+        </a>
+    @endcan
 
     <h1>Lista de profesores</h1>
 @stop

@@ -29,7 +29,7 @@ class ProfesoreRequest extends FormRequest
             'dni' => 'required|integer|min_digits:8|max_digits:8|unique:profesores',
             'fecha_nac' => 'nullable|date',
             'email' => 'required|email|unique:profesores',
-            'telefono' => 'nullable|min_digits:10|max_digits:10',
+            'telefono' => 'nullable|integer|min_digits:10|max_digits:10',
             'domicilio' => 'nullable|string|min:3|max:255',
             'cv' => 'nullable|file|mimes:pdf|max:5120',
             'file' => 'nullable|image|mimes:jpg,png,jpeg|max:3072',

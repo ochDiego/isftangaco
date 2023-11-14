@@ -13,6 +13,11 @@ class Asignatura extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function profesore():BelongsTo
     {
         return $this->belongsTo(Profesore::class);

@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('profesores');
         Storage::makeDirectory('profesores');
 
+        Storage::deleteDirectory('pdfs');
+        Storage::makeDirectory('pdfs');
+
+        $this->call(RoleSeeder::class);
         $this->call([
             UserSeeder::class,
             ProfesoreSeeder::class,

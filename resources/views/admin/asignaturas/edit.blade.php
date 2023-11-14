@@ -3,6 +3,11 @@
 @section('title', 'Asignaturas')
 
 @section('content_header')
+
+    <a class="btn btn-primary float-right" href="{{ route('admin.asignaturas.create') }}" role="button">
+        Nueva asignatura
+    </a>
+
     <h1>Editar asignatura</h1>
 @stop
 

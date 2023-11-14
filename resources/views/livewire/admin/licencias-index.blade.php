@@ -35,19 +35,23 @@
                                 {{ $licencia->tipoLicencia->nombre }}
                             </td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.licencias.edit',$licencia) }}" role="button">
-                                    Editar
-                                </a>
+                                @can('admin.licencias.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.licencias.edit',$licencia) }}" role="button">
+                                        Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10">
-                                <form action="{{ route('admin.licencias.destroy',$licencia) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
+                                @can('admin.licencias.destroy')
+                                    <form action="{{ route('admin.licencias.destroy',$licencia) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
 
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        Eliminar
-                                    </button>
-                                </form>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

@@ -4,7 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.carreras.create') }}" role="button">Nueva carrera</a>
+    @can('admin.carreras.create')    
+        <a class="btn btn-primary float-right" href="{{ route('admin.carreras.create') }}" role="button">
+            Nueva carrera
+        </a>
+    @endcan
 
     <h1>Lista de carreras</h1>
 @stop

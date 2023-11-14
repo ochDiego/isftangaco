@@ -11,6 +11,13 @@ use App\Http\Requests\LicenciaRequest;
 
 class LicenciaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.licencias.index')->only('index');
+        $this->middleware('can:admin.licencias.create')->only('create','store');
+        $this->middleware('can:admin.licencias.edit')->only('edit','update');
+        $this->middleware('can:admin.licencias.destroy')->only('destroy');
+    }
 
     public function index()
     {

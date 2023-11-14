@@ -4,7 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.asignaturas.create') }}" role="button">Nueva asignatura</a>
+    @can('admin.asignaturas.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.asignaturas.create') }}" role="button">
+            Nueva asignatura
+        </a>
+    @endcan
 
     <h1>Lista de asignaturas</h1>
 @stop

@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Storage;
 class ProfesoreController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:admin.profesores.index')->only('index');
+        $this->middleware('can:admin.profesores.create')->only('create','store');
+        $this->middleware('can:admin.profesores.edit')->only('edit','update');
+        $this->middleware('can:admin.profesores.destroy')->only('destroy');
+    }
+
     public function index()
     {
         return view('admin.profesores.index');
@@ -89,6 +97,16 @@ class ProfesoreController extends Controller
 
     public function destroy(Profesore $profesore)
     {
-        //
+        if($profesore->image){
+            Storage::delete($profesore->image->url);
+        }
+
+        if($profesore->cv){
+            Storage::delete($profesore->cv);
+        }
+
+        $profesore->delete();
+
+        return redirect()->route('admin.profesores.index')->with('info','Profesor eliminado satisfactoriamnete');
     }
 }

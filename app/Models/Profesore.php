@@ -22,6 +22,11 @@ class Profesore extends Model
         'cv',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function asistencias():HasMany
     {
         return $this->hasMany(Asistencia::class);
@@ -29,7 +34,7 @@ class Profesore extends Model
 
     public function asignaturas():HasMany
     {
-        return $this->hasMany(Materias::class);
+        return $this->hasMany(Asignatura::class);
     }
 
     public function licencias():HasMany

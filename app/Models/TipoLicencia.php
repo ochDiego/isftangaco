@@ -12,6 +12,11 @@ class TipoLicencia extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function licencias():HasMany
     {
         return $this->hasMany(Licencia::class);

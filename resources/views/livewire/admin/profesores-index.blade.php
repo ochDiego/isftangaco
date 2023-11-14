@@ -47,19 +47,23 @@
                                 </a>
                             </td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.profesores.edit',$profesore) }}" role="button">
-                                    Editar
-                                </a>
+                                @can('admin.profesores.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.profesores.edit',$profesore) }}" role="button">
+                                        Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10">
-                                <form action="{{ route('admin.profesores.destroy',$profesore) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
+                                @can('admin.profesores.destroy')
+                                    <form action="{{ route('admin.profesores.destroy',$profesore) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
 
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        Eliminar
-                                    </button>
-                                </form>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

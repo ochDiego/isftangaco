@@ -10,7 +10,7 @@ class Asistencia extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['profesore_id','entrada','salida'];
 
     public function profesore():BelongsTo
     {

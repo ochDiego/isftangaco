@@ -12,11 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                   @auth
-                        <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                            Registrar nuevo usuario
-                        </x-nav-link>
-                   @endauth
+
                 </div>
             </div>
 
@@ -105,9 +101,11 @@
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('admin.home') }}">
-                                    Panel
-                                </x-dropdown-link>
+                                @can('admin.home')
+                                    <x-dropdown-link href="{{ route('admin.home') }}">
+                                        Panel
+                                    </x-dropdown-link>
+                                @endcan
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -129,7 +127,13 @@
                             </x-slot>
                         </x-dropdown>
                     @else 
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ingresar al sistema</a>
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 mr-3">
+                            Ingresar al sistema
+                        </a>
+
+                        <a href="{{ route('register') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                            Registrarse
+                        </a>
                     @endauth
                 </div>
             </div>

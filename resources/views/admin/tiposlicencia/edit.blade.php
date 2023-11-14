@@ -3,6 +3,11 @@
 @section('title', 'Tipos de licencia')
 
 @section('content_header')
+
+    <a class="btn btn-primary float-right" href="{{ route('admin.tiposlicencia.create') }}" role="button">
+        Nuevo tipo de licencia
+    </a>
+
     <h1>Editar tipo de licencia</h1>
 @stop
 
