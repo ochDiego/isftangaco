@@ -130,11 +130,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -305,8 +305,15 @@ return [
         [
             'text'        => 'Panel',
             'route'         => 'admin.home',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'far fa-fw fa-gauge',
             'can'       => 'admin.home',
+        ],
+        
+        [
+            'text' => 'Institución',
+            'route'  => 'admin.empresas.index',
+            'icon' => 'fas fa-fw fa-gauge',
+            'active' => ['admin/empresas*'],
         ],
         
         [
@@ -331,6 +338,13 @@ return [
             'can' => 'admin.profesores.index',
         ],
         [
+            'text' => 'Asistencias',
+            'route'  => 'admin.asistencias.index',
+            'icon' => 'fas fa-fw fa-user',
+            'active' => ['admin/asistencias*'],
+            'can' => 'admin.asistencias.index',
+        ],
+        [
             'text' => 'Asignaturas',
             'route'  => 'admin.asignaturas.index',
             'icon' => 'far fa-fw fa-file',
@@ -347,22 +361,16 @@ return [
         [
             'text' => 'Licencias',
             'route'  => 'admin.licencias.index',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-fw fa-file',
             'active' => ['admin/licencias*'],
             'can' => 'admin.licencias.index',
         ],
         [
             'text' => 'Tipos de licencia',
             'route'  => 'admin.tiposlicencia.index',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-fw fa-file',
             'active' => ['admin/tipos-licencia*'],
             'can' => 'admin.tiposlicencia.index',
-        ],
-        [
-            'text' => 'Institución',
-            'route'  => 'admin.empresas.index',
-            'icon' => 'fas fa-fw fa-lock',
-            'active' => ['admin/empresas*'],
         ],
         
     ],

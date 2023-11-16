@@ -41,7 +41,7 @@
                             <td>
                                 {{ $profesore->telefono }}
                             </td>
-                            <td width="90px">
+                            <td width="120px">
                                 <a class="btn btn-secondary btn-sm" href="{{ route('admin.profesores.show',$profesore) }}" role="button">
                                     Ver más
                                 </a>

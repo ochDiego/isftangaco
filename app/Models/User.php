@@ -63,4 +63,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+
+    public function adminlte_profile_url()
+    {
+        return '/user/profile';
+    }
+
 }

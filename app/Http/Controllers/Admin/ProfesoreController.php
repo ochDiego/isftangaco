@@ -84,7 +84,10 @@ class ProfesoreController extends Controller
             $uri = Storage::put('pdfs',$request->file('cv'));
 
             if($profesore->cv){
-                Storage::delete($profesore->cv);
+
+                if(Storage::exists($profesore->cv)){
+                    Storage::delete($profesore->cv);
+                }
 
                 $profesore->update([
                     'cv' => $uri,

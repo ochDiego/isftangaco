@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProfesoreController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\EmpresaController;
+use App\Http\Controllers\Admin\AsistenciaController;
 
 Route::get('/', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
@@ -18,6 +19,8 @@ Route::resource('usuarios', UserController::class)->except('show','create','stor
 Route::resource('roles', RoleController::class)->except('show')->names('admin.roles');
 
 Route::resource('profesores', ProfesoreController::class)->names('admin.profesores');
+
+Route::get('asistencias', [AsistenciaController::class, 'index'])->name('admin.asistencias.index');
 
 Route::resource('asignaturas', AsignaturaController::class)->except('show')->names('admin.asignaturas');
 
